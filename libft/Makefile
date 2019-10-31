@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 14:33:12 by cpollich          #+#    #+#              #
-#    Updated: 2019/10/31 22:13:52 by cpollich         ###   ########.fr        #
+#    Updated: 2019/10/31 22:44:15 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ HEAD_PFT	= $(INC_DIR)/ft_ptintf.h
 PFT_SRC	=	ft_printf.c parser.c			\
 			print_char.c print_dec.c		\
 			print_octal.c print_hex.c		\
-			print_coorder.c print_string.c	\
+			print_pointer.c print_string.c	\
 			helper.c print_num.c			\
 			print_unsigned.c float_dec.c 	\
 			float_div.c float_help.c 		\
