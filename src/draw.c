@@ -6,15 +6,29 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 23:23:09 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 21:02:25 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 23:09:15 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	put_pixel(int x, int y, t_fract *fract)
+int		get_color(t_fract *fract, int i)
 {
-	fract->mlx->data_addr[y * WIDTH + x] = fract->color;
+	int		r;
+	int		g;
+	int		b;
+	double	t;
+
+	t = (double)i / fract->it;
+	r = (int)(9 * (1 - t) * pow(t, 3) * 255);
+	g = (int)(15 * pow((1 - t), 2) * pow(t, 2) * 255);
+	b = (int)(8.5 * pow((1 - t), 3) * t * 255);
+	return (RGB(r, g, b));
+}
+
+void	put_pixel(int x, int y, t_fract *fract, int i)
+{
+	fract->mlx->data_addr[y * WIDTH + x] = get_color(fract, i);
 }
 
 void	draw(t_fract *fract)

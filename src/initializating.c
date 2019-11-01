@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 17:07:25 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 21:04:09 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 22:52:28 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ t_fract	*init_fract(void)
 		error(E_MALLOC);
 	res->mlx = init_mlx();
 	res->color = C_WHITE;
-	res->it = 30;
+	res->zoom = 4;
+	res->minx = MIN_X;
+	res->maxx = MAX_X;
+	res->miny = MIN_Y;
+	res->maxy = MAX_Y;
+	res->shx = SHIFT_X;
+	res->shy = SHIFT_Y;
+	res->it = 10;
 	return (res);
 }

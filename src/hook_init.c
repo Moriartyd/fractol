@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 20:48:12 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 21:04:01 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 23:12:58 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "fractol.h"
 #include "colors.h"
 
-int		key_press(int key, void *param)
+static int	key_press(int key, void *param)
 {
 	t_fract	*fract;
 
@@ -34,13 +34,13 @@ int		key_press(int key, void *param)
 	return (0);
 }
 
-int		close_fdf(void *param)
+static int	close_fdf(void *param)
 {
 	(void)param;
 	exit(0);
 }
 
-int		mouse_handling(int x, int y, void *param)
+static int	mouse_handling(int x, int y, void *param)
 {
 	t_fract *fract;
 
@@ -54,18 +54,22 @@ int		mouse_handling(int x, int y, void *param)
 	return (0);
 }
 
-int		mouse_click(int button, int x, int y, void *param)
+static int	mouse_click(int button, int x, int y, void *param)
 {
 	t_fract	*fract;
 
 	fract = (t_fract *)param;
 	(void)x;
 	(void)y;
-	fract->mouse = (button == 1 ? 1 : 0);
+	if (button == 1)
+		fract->mouse = fract->mouse ? 0 : 1;
+	else if (button == MOUSE_SCROLL_UP || button == MOUSE_SCROLL_DOWN)
+		make_zoom(fract, button);
+	draw(fract);
 	return (0);
 }
 
-void	hook_init(t_fract *fract)
+void		hook_init(t_fract *fract)
 {
 	mlx_hook(MLX(fract)->win, 2, 0L, key_press, fract);
 	mlx_hook(MLX(fract)->win, 17, 0L, close_fdf, fract);

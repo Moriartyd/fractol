@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 21:04:23 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 21:04:28 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 23:13:17 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define WIDTH			1000
 # define HEIGHT			1000
-# define MAX_ITER		400
+# define MAX_ITER		100
 # define MAX_X			2.0
 # define MIN_X			-2.0
 # define MIN_Y			-2.0
@@ -41,6 +41,7 @@
 
 # define MLX(x) x->mlx
 # define CORD(x) x->coord
+# define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
 
 typedef struct	s_coord
 {
@@ -71,22 +72,31 @@ typedef struct	s_fract
 {
 	t_mlx		*mlx;
 	t_coord		coord;
-	int			color;
 	int			key;
 	int			it;
 	int			mouse;
+	int			color;
+	double		minx;
+	double		maxx;
+	double		miny;
+	double		maxy;
+	double		shx;
+	double		shy;
+	double		zoom;
 }				t_fract;
 
 /*
 **	Memory initialization
 */
+
 t_fract			*init_fract();
 void			error(char *str);
 
 /*
 **	Risovalka
 */
-void			put_pixel(int x, int y, t_fract *fract);
+
+void			put_pixel(int x, int y, t_fract *fract, int i);
 void			draw(t_fract *fract);
 void			mandelbrot(t_fract *fract);
 void			bshp(t_fract *fract);
@@ -95,13 +105,14 @@ void			julia(t_fract *fract);
 /*
 **	KEYBOARD & MOUSE
 */
+
 void			hook_init(t_fract *fdf);
-int				key_press(int key, void *param);
-int				close_fdf(void *param);
+void			make_zoom(t_fract *fract, int button);
 
 /*
 **	Change
 */
+
 void			change_iteration(t_fract *fract, int key);
 
 #endif

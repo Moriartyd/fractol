@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 16:09:49 by cpollich          #+#    #+#              #
-#    Updated: 2019/11/01 19:14:07 by cpollich         ###   ########.fr        #
+#    Updated: 2019/11/01 23:12:19 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,9 @@ F = -Wall -Wextra -Werror
 
 INC_DIR	=	./inc/
 SRC_DIR	=	./src/
-SRC_LST	=	errors.c hook_init.c initializating.c main.c	\
-			f_mandelbrot.c f_bshp.c draw.c changes.c f_julia.c
+SRC_LST	=	errors.c hook_init.c initializating.c main.c		\
+			f_mandelbrot.c f_bshp.c draw.c changes.c f_julia.c	\
+			zoom.c
 
 OBJ_DIR	=	./obj/
 OBJS	=	$(addprefix $(OBJ_DIR),$(SRC_LST:%.c=%.o))
