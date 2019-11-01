@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   f_mandelbrot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 22:47:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 00:09:12 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 21:02:48 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	calculate_mandelbrot(int x, int y, t_fract *fract)
 	fract->coord.key = 0;
 	fract->coord.z_x = fract->coord.c_x;
 	fract->coord.z_y = fract->coord.c_y;
-	while (i < REPEATS)
+	while (i < fract->it)
 	{
 		fract->coord.zx = fract->coord.z_x * fract->coord.z_x;
 		fract->coord.zy = fract->coord.z_y * fract->coord.z_y;

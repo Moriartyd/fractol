@@ -5,11 +5,11 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "gcc build and debug active file",
+			"name": "DEBUG",
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/fractol",
-			"args": ["mandelbrot"],
+			"args": ["julia"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
