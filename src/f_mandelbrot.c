@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 22:47:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 23:03:51 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 23:23:53 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void		mandelbrot(t_fract *fract)
 	while (y < HEIGHT)
 	{
 		x = 0;
-		fract->coord.c_y = fract->maxy - y * fract->shy;
+		fract->coord.c_y = fract->maxy - y * fract->shy + fract->ud;
 		while (x < WIDTH)
 		{
-			fract->coord.c_x = fract->minx + x * fract->shx;
+			fract->coord.c_x = fract->minx + x * fract->shx + fract->lr;
 			calculate_mandelbrot(x, y, fract);
 			x++;
 		}

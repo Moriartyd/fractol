@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 20:48:12 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 23:12:58 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 23:23:37 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ static int	key_press(int key, void *param)
 	else if (key == K_PLUS || key == K_PLUS ||
 					key == K_MINUS || key == K_MINUS_NUM)
 		change_iteration(fract, key);
+	else if (key == K_ARROW_LEFT)
+		fract->lr += 0.05;
+	else if (key == K_ARROW_RIGHT)
+		fract->lr -= 0.05;
+	else if (key == K_ARROW_DOWN)
+		fract->ud += 0.05;
+	else if (key == K_ARROW_UP)
+		fract->ud -= 0.05;
 	draw(fract);
 	return (0);
 }

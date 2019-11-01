@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 00:00:03 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 23:03:34 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 23:24:55 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void		bshp(t_fract *fract)
 	while (y < HEIGHT)
 	{
 		x = 0;
-		fract->coord.c_y = fract->maxy - y * fract->shy;
+		fract->coord.c_y = fract->maxy - y * fract->shy + fract->ud;
 		while (x < WIDTH)
 		{
-			fract->coord.c_x = fract->minx + x * fract->shx;
+			fract->coord.c_x = fract->minx + x * fract->shx + fract->lr;
 			calculate_bshp(x, y, fract);
 			x++;
 		}

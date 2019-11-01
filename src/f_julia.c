@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 23:59:53 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 23:00:49 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 23:24:12 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void		julia(t_fract *fract)
 	while (y < HEIGHT)
 	{
 		x = 0;
-		CORD(fract).c_y = fract->zoom * ((double)(HEIGHT - y) / HEIGHT - 0.5);
+		CORD(fract).c_y = fract->zoom * ((double)(HEIGHT - y) / HEIGHT - 0.5) + fract->ud;
 		while (x < WIDTH)
 		{
-			fract->coord.c_x = fract->zoom * ((double)x / WIDTH - 0.5);
+			fract->coord.c_x = fract->zoom * ((double)x / WIDTH - 0.5) + fract->lr;
 			calculate_julia(x, y, fract);
 			x++;
 		}

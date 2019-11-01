@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 21:04:23 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 23:13:17 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/01 23:19:49 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ typedef struct	s_fract
 	int			it;
 	int			mouse;
 	int			color;
+	int			ud;
+	double		lr;
 	double		minx;
 	double		maxx;
 	double		miny;
