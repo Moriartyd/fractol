@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 16:10:03 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 16:08:41 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:36:51 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,18 @@
 #include "colors.h"
 #include "errors.h"
 
-int		parse_input_num(char **av)
+static char	*to_upper(char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
+	return (str);
+}
+
+static int	parse_input_num(char **av)
 {
 	if (!(ft_strcmp(av[1], N_MANDELBROT)))
 		return (MANDELBROT);
@@ -24,13 +35,19 @@ int		parse_input_num(char **av)
 	else if (!(ft_strcmp(av[1], N_BSHP)))
 		return (BSHP);
 	else
-		error(E_USAGE);
+	{
+		ft_putendl("Usage: ./fractol <fractol>\n\tYou can use this fractols:\
+					\n\t1. Mandelbrot\
+					\n\t2. Julia\
+					\n\t3. Burning ship");
+		exit(1);
+	}
 	return (0);
 }
 
-int		parse_input_str(char **av)
+static int	parse_input_str(char **av)
 {
-	if (!(ft_strcmp(av[1], S_MANDELBROT)))
+	if (!(ft_strcmp(to_upper(av[1]), S_MANDELBROT)))
 		return (MANDELBROT);
 	else if (!(ft_strcmp(av[1], S_JULIA)))
 		return (JULIA);
@@ -40,7 +57,7 @@ int		parse_input_str(char **av)
 		return (parse_input_num(av));
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_fract	*fract;
 
@@ -54,6 +71,9 @@ int		main(int ac, char **av)
 		mlx_loop(fract->mlx->mlx);
 	}
 	else
-		error(E_USAGE);
+		error("Usage: ./fractol <fractol>\n\tYou can use this fractols:\
+					\n\t1. Mondelbrot\
+					\n\t2. Julia\
+					\n\t3. Burning ship");
 	return (0);
 }

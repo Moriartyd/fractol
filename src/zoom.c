@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 23:10:00 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 23:13:28 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/02 18:42:00 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	make_zoom(t_fract *fract, int button)
 		fract->maxx *= 0.95;
 		fract->miny *= 0.95;
 		fract->it += 1;
-		fract->zoom -= 0.2;
+		fract->zoom *= 0.9;
 	}
 	else if (button == MOUSE_SCROLL_DOWN)
 	{
@@ -29,7 +29,7 @@ void	make_zoom(t_fract *fract, int button)
 		fract->maxx *= 1.1;
 		fract->miny *= 1.1;
 		fract->it -= 1;
-		fract->zoom += 0.2;
+		fract->zoom *= 1.1;
 	}
 	fract->maxy = fract->miny + (fract->maxx - fract->minx) * WIDTH / HEIGHT;
 	fract->shx = (fract->maxx - fract->minx) / (WIDTH - 1);

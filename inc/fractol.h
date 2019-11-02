@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 21:04:23 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 23:19:49 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:36:24 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@
 # define MAX_Y			MIN_Y + (MAX_X - MIN_X) * HEIGHT / WIDTH
 # define SHIFT_X		(MAX_X - MIN_X) / (WIDTH - 1)
 # define SHIFT_Y		(MAX_Y - MIN_Y) / (HEIGHT - 1)
-# define S_MANDELBROT	"mandelbrot"
+# define S_MANDELBROT	"MANDELBROT"
 # define N_MANDELBROT	"1"
-# define S_JULIA		"julia"
+# define S_JULIA		"JULIA"
 # define N_JULIA		"2"
-# define S_BSHP			"burning ship"
+# define S_BSHP			"BURNING SHIP"
 # define N_BSHP			"3"
 # define MANDELBROT		1
 # define JULIA			2
@@ -76,7 +76,8 @@ typedef struct	s_fract
 	int			it;
 	int			mouse;
 	int			color;
-	int			ud;
+	double		speed;
+	double		ud;
 	double		lr;
 	double		minx;
 	double		maxx;
@@ -116,5 +117,7 @@ void			make_zoom(t_fract *fract, int button);
 */
 
 void			change_iteration(t_fract *fract, int key);
+void			change_move_speed(t_fract *fract, int key);
+void			arrow_control(t_fract *fract, int key);
 
 #endif

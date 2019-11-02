@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 16:09:49 by cpollich          #+#    #+#              #
-#    Updated: 2019/11/01 23:12:19 by cpollich         ###   ########.fr        #
+#    Updated: 2019/11/02 19:28:28 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,13 @@ INCLUDES	=	-I$(LIBFT_HEAD) -I$(MLX_HEAD) -I$(INC_DIR)
 all: $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) $(OBJ_DIR) $(OBJS)
-	@gcc $F -g $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME)
+	@gcc $F -O0 -O1 -O2 -O3 $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INC_DIR)
-	@gcc -c -g $F $< $(INCLUDES) -o $@
+	@gcc -c -O0 -O1 -O2 -O3 $F $< $(INCLUDES) -o $@
 
 $(MLX):
 	@make -C $(MLX_DIR)

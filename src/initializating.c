@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 17:07:25 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 22:52:28 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/02 18:52:19 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_fract	*init_fract(void)
 	res->maxy = MAX_Y;
 	res->shx = SHIFT_X;
 	res->shy = SHIFT_Y;
-	res->it = 10;
+	res->speed = 0.002;
+	res->it = 30;
 	return (res);
 }
