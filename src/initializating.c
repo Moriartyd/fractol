@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 17:07:25 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/02 18:52:19 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:46:28 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ t_fract	*init_fract(void)
 	if (!(res = (t_fract *)ft_memalloc(sizeof(t_fract))))
 		error(E_MALLOC);
 	res->mlx = init_mlx();
-	res->color = C_WHITE;
 	res->zoom = 4;
 	res->minx = MIN_X;
 	res->maxx = MAX_X;

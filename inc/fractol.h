@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 21:04:23 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/02 19:36:24 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:47:35 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void			make_zoom(t_fract *fract, int button);
 **	Change
 */
 
+void			back_pls(t_fract *f);
 void			change_iteration(t_fract *fract, int key);
 void			change_move_speed(t_fract *fract, int key);
 void			arrow_control(t_fract *fract, int key);

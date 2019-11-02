@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 16:10:11 by cpollich          #+#    #+#             */
-/*   Updated: 2019/11/01 21:00:52 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:45:49 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 # define K_ARROW_RIGHT		124
 # define K_ARROW_UP			125
 # define K_ARROW_DOWN		126
+
+# define K_BACKSPCE			51
 
 # define MOUSE_LEFT			1
 # define MOUSE_RIGHT		2
